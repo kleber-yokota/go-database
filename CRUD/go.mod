@@ -1,4 +1,4 @@
-module github.com/go-database
+module github.com/go-database/CRUD
 
 go 1.19
 
