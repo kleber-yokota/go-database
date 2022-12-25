@@ -30,7 +30,7 @@ func main() {
 	db.Create(&products)
 
 	//select one
-
+	fmt.Println("select one product")
 	var product Product
 	var productMouse Product
 
@@ -41,11 +41,43 @@ func main() {
 	fmt.Println(productMouse)
 
 	//select all
-
+	fmt.Println("Select all")
 	var productsFind []Product
 	db.Find(&productsFind)
 	for _, p := range productsFind {
 		fmt.Println(p)
+	}
+
+	//select with limit
+	fmt.Println("select with limits")
+	var productLimit []Product
+	db.Limit(2).Find(&productLimit)
+	for _, pL := range productLimit {
+		fmt.Println(pL)
+	}
+
+	//select with offset
+	fmt.Println("select with offset")
+	var productOffSet []Product
+	db.Limit(2).Offset(2).Find(&productOffSet)
+	for _, pL := range productOffSet {
+		fmt.Println(pL)
+	}
+
+	//select with where
+	fmt.Println("select with where")
+	var productWhere []Product
+	db.Where("price > ?", 90).Find(&productWhere)
+	for _, pL := range productWhere {
+		fmt.Println(pL)
+	}
+
+	//select with like
+	fmt.Println("select with like")
+	var productLike []Product
+	db.Where("name like ?", "%book%").Find(&productLike)
+	for _, pL := range productLike {
+		fmt.Println(pL)
 	}
 
 }
