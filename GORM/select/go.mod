@@ -1,4 +1,4 @@
-module github.com/go-database/GORM
+module github.com/go-database/GORM/select
 
 go 1.19
 
