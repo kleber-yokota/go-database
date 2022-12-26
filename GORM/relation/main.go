@@ -114,7 +114,7 @@ func main() {
 		}
 	}
 
-	// Get all products in each category
+	// All serial numbers items in the relevant category
 	fmt.Println("All serial numbers items in the relevant category")
 	var categoriesSerialNumber []Category
 	err = db.Model(&Category{}).Preload("Products.SerialNumber").Find(&categoriesSerialNumber).Error
